@@ -8,15 +8,18 @@ import Men from './pages/Men'
 import Women from './pages/Women'
 import Product from './pages/Product'
 import NotFound from './pages/NotFound'
+import NavigateBtns from './components/NavigateBtns'
 
 const App = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
 
-      <main className="flex-grow">
+      <main className="flex-grow max-w-6xl mx-auto px-6 w-full py-4">
+        {/* 👇 Add NavigateBtns here so they appear on your screen */}
+        <NavigateBtns />
+
         <Routes>
-          {/* Added path="/" so clicking Home or loading the root URL works */}
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />

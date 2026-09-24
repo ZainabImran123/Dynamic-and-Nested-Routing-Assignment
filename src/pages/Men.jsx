@@ -68,7 +68,6 @@ const Men = () => {
                 ))}
             </div>
 
-            {/* Pagination Controls */}
             <div className="flex justify-center items-center gap-4 py-4">
                 <button
                     onClick={handlePrev}

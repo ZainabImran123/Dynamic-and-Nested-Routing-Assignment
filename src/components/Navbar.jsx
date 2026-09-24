@@ -1,42 +1,18 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
-    const location = useLocation()
-
-    // Helper function to keep active link styling clean and reusable
-    const isActive = (path) => location.pathname === path
+    const activeStyle = "underline font-bold text-cyan-200 decoration-cyan-400 underline-offset-4"
+    const defaultStyle = "m-3 text-cyan-100 hover:text-white transition-colors duration-200"
 
     return (
-        <nav className="flex items-center justify-between px-8 py-4 bg-gray-900 text-gray-100 shadow-md border-b border-gray-800">
-            {/* Brand / Logo */}
-            <div className="flex items-center space-x-2">
-                <h2 className="text-2xl font-bold tracking-wide text-cyan-400">SMIT</h2>
-            </div>
+        <nav className='flex justify-between items-center px-8 py-4 bg-cyan-900 text-white shadow-md'>
+            <h2 className='text-2xl font-extrabold tracking-wide text-cyan-100'>Smit</h2>
 
-            {/* Navigation Links */}
-            <div className="flex items-center space-x-2 text-sm font-medium">
-                <Link
-                    to="/"
-                    className={`px-4 py-2 rounded-lg transition-colors duration-200 ${isActive('/home') ? 'bg-cyan-600 text-white shadow-sm' : 'text-gray-300 hover:bg-gray-800 hover:text-white'
-                        }`}
-                >
-                    Home
-                </Link>
-                <Link
-                    to="/about"
-                    className={`px-4 py-2 rounded-lg transition-colors duration-200 ${isActive('/about') ? 'bg-cyan-600 text-white shadow-sm' : 'text-gray-300 hover:bg-gray-800 hover:text-white'
-                        }`}
-                >
-                    About Us
-                </Link>
-                <Link
-                    to="/product"
-                    className={`px-4 py-2 rounded-lg transition-colors duration-200 ${isActive('/product') ? 'bg-cyan-600 text-white shadow-sm' : 'text-gray-300 hover:bg-gray-800 hover:text-white'
-                        }`}
-                >
-                    Product
-                </Link>
+            <div className='flex items-center text-sm md:text-base'>
+                <NavLink className={({ isActive }) => isActive ? activeStyle : defaultStyle} to="/">Home</NavLink>
+                <NavLink className={({ isActive }) => isActive ? activeStyle : defaultStyle} to="/about">About</NavLink>
+                <NavLink className={({ isActive }) => isActive ? activeStyle : defaultStyle} to="/product">Product</NavLink>
             </div>
         </nav>
     )
